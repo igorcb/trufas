@@ -1,0 +1,30 @@
+<%= form_for(@venda) do |f| %>
+  <% if @venda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@venda.errors.count, "error") %> prohibited this venda from being saved:</h2>
+
+      <ul>
+      <% @venda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pago %><br />
+    <%= f.check_box :pago %>
+    <br />
+    <%= f.label :cliente %><br />
+    <%= f.autocomplete_field :cliente_nome, autocomplete_cliente_nome_vendas_path %>
+    <br />
+    <%= f.fields_for :items do |builder| %>
+      <%= render 'items', :f => builder %>
+    <% end %>
+  </div>
+  <br />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

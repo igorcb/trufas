@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @venda.cliente.nome %>
+</p>
+
+<p>
+  <b>Pago:</b>
+  <%= @venda.pago %>
+</p>
+
+<table width="400">
+  <tr>
+    <th align="left">Produto</th>
+    <th align="left">Preco</th>
+    <th align="left">Qtde</th>
+    <th align="left">Total</th>
+  </tr>
+
+<% @venda.items.each do |item| %>
+  <tr>
+    <td align="left"><%= item.produto.nome %></td>
+    <td align="left"><%= item.preco %></td>
+    <td align="left"><%= item.qtde %></td>
+    <td align="left"><%= item.valor_total %></td>
+  </tr>
+<% end %>
+<br />
+</table>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<%= link_to 'Edit', edit_venda_path(@venda) %> |
+<%= link_to 'Back', vendas_path %> |
+<%= link_to 'New', new_venda_path %>

@@ -1,0 +1,7 @@
+
+    <%= f.label :produto, "Produto" %>
+    <%= f.collection_select :produto_id, Produto.order('nome'), :id, :nome, :include_blank => true %>
+    <%= f.label :qtde, "Qtde" %>
+    <%= f.text_field :qtde, :maxlength => 2, :size => 2 %>
+    <br />
+

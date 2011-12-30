@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  venda: 
+  produto: 
+  qtde: 1
+  preco: 9.99
+
+two:
+  venda: 
+  produto: 
+  qtde: 1
+  preco: 9.99

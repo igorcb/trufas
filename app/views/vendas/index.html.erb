@@ -1,0 +1,40 @@
+<h1>Vendas Diárias</h1>
+<p>
+<%= link_to 'Nova Venda', new_venda_path %>
+</p>
+<table>
+  <tr>
+    <th>Cliente</th>
+    <th>Pago</th>
+    <th>Qtde</th>
+    <th>Total</th>
+    <th colspan="3">Opção</th>
+  </tr>
+
+<% @vendas.each do |venda| %>
+  <tr>
+    <td><%= venda.cliente.nome %></td>
+    <td><%= venda.recebido %></td>
+    <td><%= venda.qtde_items %>
+    <td><%= venda.total_venda %></td>
+    <td><%= link_to 'Exibir', venda %></td>
+    <td><%= link_to 'Editar', edit_venda_path(venda) %></td>
+    <td><%= link_to 'Deletar', venda, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Receber', :action => 'receber', :id => venda.id if !venda.pago %></td>
+  </tr>
+<% end %>
+  <tr>
+    <td>
+      <b>Total: <%= qtde_total_diaria %> <b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Total Recebido: <%= qtde_total_diaria_recebido %> <b>
+    </td>
+  </tr>
+</table>
+
+<p>
+<%= link_to 'Nova Venda', new_venda_path %>
+</p>

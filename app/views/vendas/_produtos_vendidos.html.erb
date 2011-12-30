@@ -1,0 +1,15 @@
+<h1 />
+<h2>Produtos Vendidos</h2>
+<table>
+  <tr>
+    <th>Produto</th>
+    <th>Qtde</th>
+  </tr>
+
+<% Produto.order('nome').each do |produto| %>
+  <tr>
+    <td> <%= produto.nome %></td>
+    <td align="right"> <%= produto.resumo_por_produto_diario %> </td>
+  </tr>
+<% end %>
+</table>

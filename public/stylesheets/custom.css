@@ -1,0 +1,25 @@
+#tudo {
+width: 788px;
+}
+#topo {
+height: 150px;
+background-color: #006400;
+}
+#menu {
+float: left;
+width: 168px;
+height: 400px;
+background-color: #0000FF;
+}
+#conteudo {
+float: right;
+width: 600px;
+height: 400px;
+background-color: #FF0000;
+}
+#rodape {
+clear: both;
+height: 40px;
+
+background-color: #FFFF00;
+}

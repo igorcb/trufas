@@ -1,0 +1,7 @@
+one:
+  cliente_id: 1
+  pago: false
+
+two:
+  cliente_id: 1
+  pago: false
