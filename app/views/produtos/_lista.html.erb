@@ -1,0 +1,7 @@
+<h1>Produtos em destaque</h1>
+
+<h3> 
+<% @produtos.each do |produto| %>
+    <li><%=raw produto.nome %></li>
+<% end %>
+</h3>
