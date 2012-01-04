@@ -12,6 +12,16 @@ class VendasController < ApplicationController
        redirect_to(vendas_url)
      end
   end
+
+  def index_all
+    @vendas = Venda.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @vendas }
+    end
+  end
+
   # GET /vendas
   # GET /vendas.xml
   def index

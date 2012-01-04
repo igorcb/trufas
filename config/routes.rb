@@ -9,6 +9,7 @@ Trufas::Application.routes.draw do
     #:member => { :receber => [:get, :post] }
     get :receber, :on => :collection
     #post 'toggle'
+    get :index_all, :on => :collection
 
   end
 
