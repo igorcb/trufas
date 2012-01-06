@@ -6,9 +6,7 @@ class VendasController < ApplicationController
   autocomplete :cliente, :nome, :full => true
 
   def search
-    @vendas = Venda.all.where('DATE(created_at) = ?',params[:search])
-#    @vendas = Venda.all
-    redirect_to(:index_all)
+    @vendas = Venda.where('DATE(created_at) = ?',params[:query])
   end
 
   def receber
