@@ -1,4 +1,13 @@
 <h1>Vendas Diárias</h1>
+<fieldset>
+<%= form_tag("/vendas/search", :method => "get") do %>
+  <%= label_tag(:q, "Selecionar Data:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+</fieldset>
+
+<br >
 <table>
   <tr>
     <th>Data</th>

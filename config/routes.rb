@@ -3,14 +3,17 @@ Trufas::Application.routes.draw do
   #get "produtos/index"
   resources :produtos
 
+  map.resources :vendas, :collection => { :search => [:any] }
+
   resources :vendas do
     get :autocomplete_cliente_nome, :on => :collection 
     #:collection => { :receber => [:get, :post] }   
     #:member => { :receber => [:get, :post] }
     get :receber, :on => :collection
     #post 'toggle'
-    get :index_all, :on => :collection
-
+    get :index_all, :on => :collection 
+    #get 'search'
+    post 'search'
   end
 
   root :to => "produtos#index"

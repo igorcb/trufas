@@ -5,6 +5,12 @@ class VendasController < ApplicationController
 
   autocomplete :cliente, :nome, :full => true
 
+  def search
+    @vendas = Venda.all.where('DATE(created_at) = ?',params[:search])
+#    @vendas = Venda.all
+    redirect_to(:index_all)
+  end
+
   def receber
      @venda = Venda.find(params[:id])
      @venda.pago = true
