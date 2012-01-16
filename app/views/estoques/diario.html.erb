@@ -4,18 +4,12 @@
   <tr>
     <th>Produto</th>
     <th>Qtde</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @estoques.each do |estoque| %>
   <tr>
     <td><%= estoque.produto.nome %></td>
     <td><%= estoque.qtde %></td>
-    <td><%= link_to 'Exibir', estoque %></td>
-    <td><%= link_to 'Editar', edit_estoque_path(estoque) %></td>
-    <td><%= link_to 'Deletar', estoque, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
   <tr>
