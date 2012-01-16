@@ -1,0 +1,29 @@
+<h1>Listar Estoque dia <%= format_data(Date.today) %> </h1>
+
+<table>
+  <tr>
+    <th>Produto</th>
+    <th>Qtde</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estoques.each do |estoque| %>
+  <tr>
+    <td><%= estoque.produto.nome %></td>
+    <td><%= estoque.qtde %></td>
+    <td><%= link_to 'Exibir', estoque %></td>
+    <td><%= link_to 'Editar', edit_estoque_path(estoque) %></td>
+    <td><%= link_to 'Deletar', estoque, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+  <tr>
+    <td>
+      <b>Total: <%= @estoques.sum('qtde') %> <b>
+    </td>
+  </tr>
+</table>
+  
+
+<br />
