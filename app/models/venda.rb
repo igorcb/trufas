@@ -7,7 +7,7 @@ class Venda < ActiveRecord::Base
   has_many :items, :dependent => :destroy
   accepts_nested_attributes_for :items, :reject_if => lambda { |a| a[:qtde].blank? }
   
-  scope :venda_diaria, where('DATE(created_at) = ?',Date.today)
+  scope :venda_diaria, where('DATE(created_at) = ?',Date.today).order('created_at')
 
   def recebido
     case self.pago 
