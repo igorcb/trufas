@@ -11,10 +11,8 @@ class VendasController < ApplicationController
 
   def receber
      @venda = Venda.find(params[:id])
-     @venda.pago = true
-     if @venda.save
-       redirect_to(vendas_url)
-     end
+     @venda.receber
+     redirect_to(vendas_url)
   end
 
   def index_all

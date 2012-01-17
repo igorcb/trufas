@@ -9,6 +9,12 @@ class Venda < ActiveRecord::Base
   
   scope :venda_diaria, where('DATE(created_at) = ?',Date.today).order('created_at')
 
+  def receber
+    self.pago = true
+    self.data_pagamento = Date.today
+    self.save
+  end
+
   def recebido
     case self.pago 
       when true then 'Sim'
