@@ -1,6 +1,6 @@
 class VendasController < ApplicationController
   USERNAME, PASSWORD = "admin", "q2w3e4"
-  before_filter :checked_logged_in#, :only => [:any]
+  #before_filter :checked_logged_in#, :only => [:any]
   #before_filter :checked_logged_in, :only => [:new, :create, :edit, :update]
 
   autocomplete :cliente, :nome, :full => true
