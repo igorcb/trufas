@@ -9,6 +9,8 @@ class Venda < ActiveRecord::Base
   
   scope :venda_diaria, where('DATE(created_at) = ?',Date.today).order('created_at')
 
+  before_save :pagamento
+
   def receber
     self.pago = true
     self.data_pagamento = Date.today
@@ -45,6 +47,12 @@ class Venda < ActiveRecord::Base
       qt += item.qtde * item.preco
     end
     qt
+  end
+
+private
+
+  def pagamento
+    self.data_pagamento = (self.pago? ? Date.today : nil)
   end
 
 end
