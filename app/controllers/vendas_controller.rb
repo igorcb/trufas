@@ -28,7 +28,8 @@ class VendasController < ApplicationController
   # GET /vendas.xml
   def index
     #@vendas = Venda.all
-    @vendas = Venda.venda_diaria	
+    #@vendas = Venda.venda_diaria	
+    @vendas = Venda.where('DATE(created_at) = ?',Date.today).order('created_at')
 
     respond_to do |format|
       format.html # index.html.erb
