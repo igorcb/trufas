@@ -1,0 +1,9 @@
+<h1>Clientes</h1>
+
+<h3> 
+<% @clientes.each do |cliente| %>
+    <li><%=raw link_to cliente.nome, cliente %></li>
+<% end %>
+</h3>
+
+

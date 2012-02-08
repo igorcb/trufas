@@ -1,0 +1,22 @@
+<p>
+  <b>Cliente:</b>
+  <%= @cliente.nome %>
+</p>
+
+<table width="400">
+  <tr>
+    <th align="left">Venda</th>
+    <th align="left">Pago</th>
+    <th align="left">Data Compra</th>
+    <th align="left">Data Pgto</th>
+
+  </tr>
+
+<% @cliente.vendas.each do |venda| %>
+  <tr>
+    <td align="left"><%= venda.id %></td>
+    <td align="left"><%= venda.recebido %></td>
+    <td align="left"><%= format_data(venda.created_at) %></td>
+    <td align="left"><%= format_data(venda.data_pagamento) if venda.data_pagamento %></td>
+  </tr>
+<% end %>

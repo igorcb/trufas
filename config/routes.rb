@@ -1,6 +1,8 @@
 Trufas::Application.routes.draw do
   
 
+  resources :clientes
+
   resources :estoques do
     get :diario, :on => :collection
   end
