@@ -1,7 +1,8 @@
 class EstoquesController < ApplicationController
 
   def diario
-    @estoques = Estoque.diario
+    #@estoques = Estoque.diario
+    @estoques = Estoque.where('DATE(created_at) = ?',Date.today)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @estoques }
