@@ -16,7 +16,7 @@ class VendasController < ApplicationController
   end
 
   def index_all
-    @vendas = Venda.order('created_at')
+    @vendas = Venda.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -29,7 +29,7 @@ class VendasController < ApplicationController
   def index
     #@vendas = Venda.all
     #@vendas = Venda.venda_diaria	
-    @vendas = Venda.where('DATE(created_at) = ?',Date.today)
+    @vendas = Venda.includes(:cliente).where('DATE(created_at) = ?',Date.today)
 
     respond_to do |format|
       format.html # index.html.erb
