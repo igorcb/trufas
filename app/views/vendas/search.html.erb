@@ -28,7 +28,7 @@
 <% i = 0%>
 <% @vendas.each do |venda| %>
   <tr>
-    <%= i =+ 1 %>
+    <%= i += 1 %>
     <td ><%= i %></td>
     <td align="center"><%= format_data venda.created_at %></td>
     <td><%= venda.cliente.nome %></td>
