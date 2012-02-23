@@ -7,10 +7,17 @@
       <%= link_to('Limpar Filtro', :action => 'index_all') if params[:query] %>
     </fieldset>
   </form>
-
 <br >
+
+<p>
+<%= link_to 'Nova Venda', new_venda_path %> <br />
+<%= @vendas.count %>
+</p>
+
+
 <table>
   <tr>
+    <th>Seq</th>
     <th>Data</th>
     <th>Cliente</th>
     <th>Pago</th>
@@ -18,9 +25,11 @@
     <th>Total</th>
     <th colspan="3">Opção</th>
   </tr>
-
+<% i = 0%>
 <% @vendas.each do |venda| %>
   <tr>
+    <%= i =+ 1 %>
+    <td ><%= i %></td>
     <td align="center"><%= format_data venda.created_at %></td>
     <td><%= venda.cliente.nome %></td>
     <td><%= venda.recebido %></td>
