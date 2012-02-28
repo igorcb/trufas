@@ -16,7 +16,7 @@ class VendasController < ApplicationController
   end
 
   def index_all
-    @vendas = Venda.order('created_at')
+    @vendas = Venda.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,4 +1,8 @@
 <h1>Vendas Diárias</h1>
+<pre>
+	Esta página irá informar todas as vendas organizadas por data decrescente.
+</pre>
+
   <form method="post" action="/vendas/search">
     <fieldset id="busca_simples">
       <%= label_tag(:q, "Selecionar Data:") %>
@@ -9,7 +13,7 @@
   </form>
 
 <p>
-<%= @vendas.count %>
+<%= @vendas.count %> | <%= link_to 'Nova Venda', new_venda_path %>
 </p>
 
 <br >
@@ -28,16 +32,16 @@
 <% @vendas.each do |venda| %>
   <tr>
     <% i += 1 %>
-    <td ><%= i %></td>
-    <td align="center"><%= format_data venda.created_at %></td>
+    <td  align="center" ><%= i %></td>
+    <td><%= format_data venda.created_at %></td>
     <td><%= venda.cliente.nome %></td>
     <td><%= venda.recebido %></td>
     <td><%= venda.qtde_items %>
     <td><%= venda.total_venda %></td>
-    <td><%= link_to 'Exibir', venda %></td>
-    <td><%= link_to 'Editar', edit_venda_path(venda) %></td>
-    <td><%= link_to 'Deletar', venda, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to 'Receber', :action => 'receber', :id => venda.id if !venda.pago %></td>
+    <td ><%= link_to 'Exibir', venda %></td>
+    <td ><%= link_to 'Editar', edit_venda_path(venda) %></td>
+    <td ><%= link_to 'Deletar', venda, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td ><%= link_to 'Receber', :action => 'receber', :id => venda.id if !venda.pago %></td>
   </tr>
 <% end %>
   <tr>
