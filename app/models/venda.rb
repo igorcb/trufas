@@ -44,7 +44,7 @@ class Venda < ActiveRecord::Base
   def total_venda
     qt = 0
     qtde = self.items.to_a.sum do |item|
-      qt += item.qtde * item.preco
+      qt += item.qtde * item.preco.to_f
     end
     qt
   end
