@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Cliente:</b>
-  <%= @venda.cliente.nome %>
-</p>
+<%= render :partial => '/clientes/dados_cliente', :locals => {:cliente => @venda.cliente} %>
 
 <p>
   <b>
@@ -36,6 +33,10 @@
 
 <br />
 <br />
+<p>
+Qtde Venda:
+</p>
+
 <br />
 <br />
 <br />

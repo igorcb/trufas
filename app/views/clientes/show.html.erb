@@ -1,9 +1,5 @@
-<p>
-  <h2>
-    <b>Cliente:</b>
-    <%= @cliente.nome %>
-  </h2>
-</p>
+<%= render :partial => '/clientes/dados_cliente', :locals => {:cliente => @cliente} %>
+
 <p>
   <h2>
     <b>Histórico de Vendas</b>
@@ -33,3 +29,10 @@
 
   </tr>
 <% end %>
+</table>
+
+<br />
+<br />
+<%= link_to 'Back', clientes_path %>
+
+
