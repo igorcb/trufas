@@ -1,6 +1,9 @@
+<%= render :partial => '/clientes/dados_cliente', :locals => {:cliente => @cliente} %>
+
 <p>
-  <b>Cliente:</b>
-  <%= @cliente.nome %>
+  <h2>
+    <b>Histórico de Vendas</b>
+  </h2>
 </p>
 
 <table width="400">
@@ -9,6 +12,8 @@
     <th align="left">Pago</th>
     <th align="left">Data Compra</th>
     <th align="left">Data Pgto</th>
+    <th align="left">Valor</th>
+    <th align="left">Options</th>
 
   </tr>
 
@@ -18,5 +23,16 @@
     <td align="left"><%= venda.recebido %></td>
     <td align="left"><%= format_data(venda.created_at) %></td>
     <td align="left"><%= format_data(venda.data_pagamento) if venda.data_pagamento %></td>
+    <td align="left"><%= venda.total_venda %></td>
+    <td align="left"><%= link_to 'Exibir', venda %></td>
+    <td><%= link_to 'Receber', :controller => 'vendas', :action => 'receber', :id => venda.id if !venda.pago %></td>
+
   </tr>
 <% end %>
+</table>
+
+<br />
+<br />
+<%= link_to 'Back', clientes_path %>
+
+

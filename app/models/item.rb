@@ -11,11 +11,11 @@ class Item < ActiveRecord::Base
 
   def getpreco
     p = Produto.find(self.produto_id)
-    self.preco = p.preco
+    self.preco = p.preco.to_f
     #puts ">>>>>>>>>>>>>>>>>>>>>>>>>>> passou no metodo getpreco" 
   end
 
   def valor_total
-    self.preco * self.qtde
+    self.preco.to_f * self.qtde
   end
 end

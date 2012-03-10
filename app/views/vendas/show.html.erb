@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Cliente:</b>
-  <%= @venda.cliente.nome %>
-</p>
+<%= render :partial => '/clientes/dados_cliente', :locals => {:cliente => @venda.cliente} %>
 
 <p>
-  <b>Pago:</b>
-  <%= @venda.pago %>
+  <b>
+  <% if @venda.pago? %>
+       Pago em <%= format_data(@venda.data_pagamento) %>
+     <% else %>  
+       em aberto, deseja receber <%= link_to 'click aqui', :action => 'receber' %>
+  <% end %>
+  </b>
 </p>
 
 <table width="400">
@@ -31,6 +33,10 @@
 
 <br />
 <br />
+<p>
+Qtde Venda:
+</p>
+
 <br />
 <br />
 <br />
