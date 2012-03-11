@@ -31,16 +31,13 @@
 <br />
 </table>
 
-<br />
-<br />
 <p>
-Qtde Venda:
+<b>Qtde Total: <%= @venda.items.sum('qtde') %></b>
+</p>
+<p>
+<b>Valor Total: <%= @venda.items.sum('qtde*preco') %></b>
 </p>
 
-<br />
-<br />
-<br />
-<br />
 
 <%= link_to 'Edit', edit_venda_path(@venda) %> |
 <%= link_to 'Back', vendas_path %> |
