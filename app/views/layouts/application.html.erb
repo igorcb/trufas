@@ -4,6 +4,7 @@
 <!--  <title><%#= content_for?(:title) ? yield(:title) : "Untitled" %></title>  -->
     <title>Trufas - <%= controller_name.humanize %>  </title>
 
+
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "jquery-ui-1.8.16.custom.css" %>
     <%#= javascript_include_tag :defaults %>
@@ -16,12 +17,16 @@
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
+
+      <%= render 'layouts/menu' %>
+
       <div id="menu">
       <ul>
          <%= render '/vendas/produtos_vendidos' if controller.controller_name == 'vendas' %>
       </ul>
+      <p>&nbsp</p><br />
       </div>
-      <%#= content_tag :h1, yield(:title) if show_title? %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
     </div>
 
